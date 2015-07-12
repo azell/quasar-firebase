@@ -7,8 +7,29 @@
   <version>1.0-dev</version>
   <packaging>jar</packaging>
 
+  <prerequisites>
+    <maven>3.0.3</maven>
+  </prerequisites>
+
   <name>quasar-firebase</name>
   <url>http://maven.apache.org</url>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.3</version>
+        <configuration>
+          <compilerArgument>-parameters</compilerArgument>
+          <showDeprecation>true</showDeprecation>
+          <showWarnings>true</showWarnings>
+          <source>${project.java.version}</source>
+          <target>${project.java.version}</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
