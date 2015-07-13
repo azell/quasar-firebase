@@ -8,9 +8,21 @@ import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.Query;
 
+/**
+ * This class exposes Firebase functionality that builds on top of the fiber
+ * model.
+ */
 public enum FirebaseUtil {
   INSTANCE;
 
+  /**
+   * Retrieves the Firebase server time based off of the local server time
+   * offset.
+   *
+   * @param  ref an authenticated Firebase reference.
+   *
+   * @return the Firebase server time.
+   */
   public long serverTime(Firebase ref) throws SuspendExecution {
     return System.currentTimeMillis() + serverTimeOffset(ref);
   }

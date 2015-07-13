@@ -15,6 +15,9 @@ import com.google.common.base.Throwables;
 
 import java.util.concurrent.ExecutionException;
 
+/**
+ * This class attempts to simplify the Quasar API.
+ */
 public enum QuasarUtil {
   INSTANCE;
 
