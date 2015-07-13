@@ -15,6 +15,14 @@ import com.firebase.client.ValueEventListener;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
+/**
+ * This class is used to run a transaction, and will be notified of the results
+ * of the transaction. To prevent the handler from receiving a null value when
+ * the location has not been cached, implementations should install a listener
+ * in the <code>requestAsync</code> method which invokes
+ * <code>Query.addValueEventListener</code>. The listener will be removed when
+ * the transaction has completed.
+ */
 public abstract class TransactionHandlerCachedAsync
         extends FiberAsync<Status, FirebaseException>
         implements Transaction.Handler, ValueEventListener {
