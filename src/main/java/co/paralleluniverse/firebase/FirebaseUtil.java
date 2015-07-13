@@ -23,7 +23,7 @@ public enum FirebaseUtil {
    *
    * @return the Firebase server time.
    *
-   * @throws SuspendExecution
+   * @throws SuspendExecution for internal Quasar use.
    */
   public long serverTime(Firebase ref) throws SuspendExecution {
     return System.currentTimeMillis() + serverTimeOffset(ref);
@@ -36,7 +36,7 @@ public enum FirebaseUtil {
    *
    * @return the local server time offset.
    *
-   * @throws SuspendExecution
+   * @throws SuspendExecution for internal Quasar use.
    */
   public long serverTimeOffset(Firebase ref) throws SuspendExecution {
     DataSnapshot snap = QuasarUtil.INSTANCE.run(new ValueEventListenerAsync() {

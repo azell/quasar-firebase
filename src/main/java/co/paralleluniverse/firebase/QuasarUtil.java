@@ -27,7 +27,7 @@ public enum QuasarUtil {
    *
    * @param  target the asynchronous operation.
    *
-   * @returns the result of the async operation.
+   * @return the result of the async operation.
    */
   public <V> V runInFiber(SuspendableCallable<V> target) {
     FiberScheduler scheduler = DefaultFiberScheduler.getInstance();
@@ -45,7 +45,7 @@ public enum QuasarUtil {
    *
    * @param  target the asynchronous operation.
    *
-   * @returns the result of the async operation.
+   * @return the result of the async operation.
    */
   public <V, E extends Throwable> V run(FiberAsync<V, E> target)
           throws E, SuspendExecution {
