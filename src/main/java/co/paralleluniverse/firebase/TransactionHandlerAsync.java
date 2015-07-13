@@ -9,6 +9,11 @@ import com.firebase.client.FirebaseError;
 import com.firebase.client.FirebaseException;
 import com.firebase.client.Transaction;
 
+/**
+ * This class is used to run a transaction, and will be notified of the results
+ * of the transaction. If there are no active listeners for the given location,
+ * the first invocation of the handler will have a null value.
+ */
 public abstract class TransactionHandlerAsync
         extends FiberAsync<TransactionHandlerAsync.Status, FirebaseException>
         implements Transaction.Handler {
@@ -24,6 +29,9 @@ public abstract class TransactionHandlerAsync
     }
   }
 
+  /**
+   * This class stores transaction results.
+   */
   public static class Status {
     private final boolean      committed;
     private final DataSnapshot currentData;
