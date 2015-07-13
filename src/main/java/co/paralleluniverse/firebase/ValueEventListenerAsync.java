@@ -9,6 +9,9 @@ import com.firebase.client.FirebaseError;
 import com.firebase.client.FirebaseException;
 import com.firebase.client.ValueEventListener;
 
+/**
+ * This class is used to detect a single change in the data at a location.
+ */
 public abstract class ValueEventListenerAsync
         extends FiberAsync<DataSnapshot, FirebaseException>
         implements ValueEventListener {

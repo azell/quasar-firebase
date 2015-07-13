@@ -8,6 +8,9 @@ import com.firebase.client.Firebase.ResultHandler;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.FirebaseException;
 
+/**
+ * This class is used to handle the outcome of an operation.
+ */
 public abstract class ResultHandlerAsync
         extends FiberAsync<Void, FirebaseException> implements ResultHandler {
 
