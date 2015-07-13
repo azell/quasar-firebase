@@ -21,6 +21,14 @@ import java.util.concurrent.ExecutionException;
 public enum QuasarUtil {
   INSTANCE;
 
+  /**
+   * Runs the asynchronous operation in a new fiber, blocks until it completes
+   * and returns its result. Throws an exception if the operation has failed.
+   *
+   * @param  target the asynchronous operation.
+   *
+   * @returns the result of the async operation.
+   */
   public <V> V runInFiber(SuspendableCallable<V> target) {
     FiberScheduler scheduler = DefaultFiberScheduler.getInstance();
 
@@ -31,6 +39,14 @@ public enum QuasarUtil {
     }
   }
 
+  /**
+   * Runs the asynchronous operation, blocks until it completes and returns its
+   * result. Throws an exception if the operation has failed.
+   *
+   * @param  target the asynchronous operation.
+   *
+   * @returns the result of the async operation.
+   */
   public <V, E extends Throwable> V run(FiberAsync<V, E> target)
           throws E, SuspendExecution {
     try {
