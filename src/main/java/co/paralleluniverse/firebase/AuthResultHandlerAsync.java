@@ -9,6 +9,9 @@ import com.firebase.client.Firebase.AuthResultHandler;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.FirebaseException;
 
+/**
+ * This class is used to listen to the result of an authentication attempt.
+ */
 public abstract class AuthResultHandlerAsync
         extends FiberAsync<AuthData, FirebaseException>
         implements AuthResultHandler {

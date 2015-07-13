@@ -3,14 +3,13 @@ package co.paralleluniverse.firebase;
 //~--- non-JDK imports --------------------------------------------------------
 
 import co.paralleluniverse.fibers.FiberAsync;
+import co.paralleluniverse.firebase.TransactionHandlerAsync.Status;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.FirebaseException;
 import com.firebase.client.Transaction;
 import com.firebase.client.ValueEventListener;
-
-import co.paralleluniverse.firebase.TransactionHandlerAsync.Status;
 
 //~--- JDK imports ------------------------------------------------------------
 

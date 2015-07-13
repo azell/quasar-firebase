@@ -9,6 +9,10 @@ import com.firebase.client.Firebase.CompletionListener;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.FirebaseException;
 
+/**
+ * This class is used as a method of being notified when an operation has been
+ * acknowledged by the Firebase servers and can be considered complete.
+ */
 public abstract class CompletionListenerAsync
         extends FiberAsync<Firebase, FirebaseException>
         implements CompletionListener {
