@@ -9,3 +9,5 @@ DataSnapshot snap = QuasarUtil.INSTANCE.run(new ValueEventListenerAsync() {
   }
 });
 ```
+
+See the unit tests for typical usage.
