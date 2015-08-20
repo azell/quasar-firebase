@@ -1,4 +1,4 @@
-package co.paralleluniverse.firebase;
+package com.github.azell.firebase;
 
 //~--- non-JDK imports --------------------------------------------------------
 

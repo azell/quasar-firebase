@@ -1,4 +1,4 @@
-package co.paralleluniverse.firebase;
+package com.github.azell.firebase;
 
 //~--- non-JDK imports --------------------------------------------------------
 
@@ -13,7 +13,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import co.paralleluniverse.firebase.TransactionHandlerAsync.Status;
+import com.github.azell.firebase.TransactionHandlerAsync.Status;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotNull;
