@@ -26,7 +26,9 @@ public enum FirebaseUtil {
    * @throws SuspendExecution for internal Quasar use.
    */
   public long serverTime(Firebase ref) throws SuspendExecution {
-    return System.currentTimeMillis() + serverTimeOffset(ref);
+    long offset = serverTimeOffset(ref);
+
+    return System.currentTimeMillis() + offset;
   }
 
   /**
