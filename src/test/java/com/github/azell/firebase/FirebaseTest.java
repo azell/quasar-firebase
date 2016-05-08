@@ -20,9 +20,9 @@ import static org.testng.Assert.assertNotNull;
 import static org.testng.Assert.assertNull;
 import static org.testng.Assert.assertTrue;
 
-//~--- JDK imports ------------------------------------------------------------
+import static com.github.azell.firebase.FirebaseServer.file;
 
-import java.io.File;
+//~--- JDK imports ------------------------------------------------------------
 
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -33,12 +33,27 @@ public class FirebaseTest {
 
   @BeforeClass
   public void start() {
-    File file = FirebaseServer.file(getClass(), "db.json");
+    Class<?> cls = getClass();
 
-    server.start(file);
+    server.start(file(cls, "db.json"), file(cls, "rules.json"), "TOP-SECRET");
 
     if (server.running()) {
       ref = new Firebase("ws://127.0.0.1:5000");
+
+      QuasarUtil.INSTANCE.runInFiber(
+          () -> {
+            return new AuthResultHandlerAsync() {
+              @Override
+              protected void requestAsync() {
+                ref.authWithCustomToken(
+                    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1"
+                    + "NiJ9.eyJleHAiOjQ1ODY3NDI2NzUsInYiOjAsImlhdCI6MTQ2MjY5M"
+                    + "TQ3NSwiZCI6eyJ1aWQiOiIxIn19.1Yg-JN76ki6V0XdvfYEd11mut-"
+                    + "6Hni4TOvgSq1SKP4I",
+                    this);
+              }
+            }.run();
+          } );
     }
   }
 

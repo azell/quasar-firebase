@@ -11,12 +11,11 @@ import java.io.IOException;
 
 import java.net.URISyntaxException;
 
-import java.util.Optional;
 import java.util.logging.Logger;
 
 public final class FirebaseServer {
   private static final String RUNNER = "server.js";
-  private Optional<Process>   proc   = Optional.empty();
+  private Process             proc;
 
   public static File file(Class<?> cls, String path) {
     try {
@@ -27,15 +26,23 @@ public final class FirebaseServer {
   }
 
   public boolean running() {
-    return proc.isPresent();
+    return proc != null;
   }
 
-  public void start(File file) {
+  public void start(File data, File rules, String secret) {
     try {
       File home = new File(System.getProperty("firebase.server"));
 
-      proc = Optional.of(new ProcessBuilder("node", RUNNER,
-              file.getAbsolutePath()).directory(home).inheritIO().start());
+      proc = new ProcessBuilder("node",
+                                RUNNER,
+                                "--data",
+                                data.getAbsolutePath(),
+                                "--rules",
+                                rules.getAbsolutePath(),
+                                "--secret",
+                                secret).directory(home)
+                                       .inheritIO()
+                                       .start();
     } catch (IOException e) {
       warn(e);
     }
@@ -43,13 +50,11 @@ public final class FirebaseServer {
 
   public void stop() throws InterruptedException {
     if (running()) {
-      Process impl = proc.get();
-
-      impl.destroyForcibly();
-      impl.waitFor();
+      proc.destroyForcibly();
+      proc.waitFor();
     }
 
-    proc = Optional.empty();
+    proc = null;
   }
 
   private void warn(Throwable thrown) {
