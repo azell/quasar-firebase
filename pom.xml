@@ -40,7 +40,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.5.1</version>
+        <version>3.6.0</version>
         <configuration>
           <compilerArgument>-parameters</compilerArgument>
           <showDeprecation>true</showDeprecation>
@@ -53,7 +53,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
-        <version>2.10</version>
+        <version>3.0.0</version>
         <executions>
           <execution>
             <id>getClasspathFilenames</id>
@@ -94,7 +94,7 @@
     <dependency>
       <groupId>co.paralleluniverse</groupId>
       <artifactId>quasar-core</artifactId>
-      <version>0.7.6</version>
+      <version>0.7.7</version>
       <classifier>jdk8</classifier>
     </dependency>
 
@@ -108,7 +108,7 @@
     <dependency>
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
-      <version>6.9.10</version>
+      <version>6.10</version>
       <scope>test</scope>
     </dependency>
   </dependencies>

@@ -1,11 +1,5 @@
 package com.github.azell.firebase;
 
-//~--- non-JDK imports --------------------------------------------------------
-
-import com.google.common.base.Throwables;
-
-//~--- JDK imports ------------------------------------------------------------
-
 import java.io.File;
 import java.io.IOException;
 
@@ -21,7 +15,7 @@ public final class FirebaseServer {
     try {
       return new File(cls.getResource(path).toURI());
     } catch (URISyntaxException e) {
-      throw Throwables.propagate(e);
+      throw new RuntimeException(e);
     }
   }
 

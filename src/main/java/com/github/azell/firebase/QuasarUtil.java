@@ -9,8 +9,6 @@ import co.paralleluniverse.fibers.FiberScheduler;
 import co.paralleluniverse.fibers.SuspendExecution;
 import co.paralleluniverse.strands.SuspendableCallable;
 
-import com.google.common.base.Throwables;
-
 //~--- JDK imports ------------------------------------------------------------
 
 import java.util.concurrent.ExecutionException;
@@ -35,7 +33,7 @@ public enum QuasarUtil {
     try {
       return new Fiber<V>(scheduler, target).start().get();
     } catch (ExecutionException | InterruptedException e) {
-      throw Throwables.propagate(e);
+      throw new RuntimeException(e);
     }
   }
 
@@ -52,7 +50,7 @@ public enum QuasarUtil {
     try {
       return target.run();
     } catch (InterruptedException e) {
-      throw Throwables.propagate(e);
+      throw new RuntimeException(e);
     }
   }
 }
